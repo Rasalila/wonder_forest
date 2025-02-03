@@ -22,9 +22,25 @@ body{
 	background-color: #010101;
 	color: #ffff;
 	font-family: raleway_f, sans-serif;
-	line-height: 1.55; //межстрочный интервал
+	line-height: 1.55; /* межстрочный интервал */
 }
 
 .main-header {
 	position: relative;
+}
+
+.layers {
+	height: 100vh;
+	display: flex;
+	align-items: center; /* ось Y |*/
+	justify-content: center; /* ось Х -->*/
+	text-align: center; /* выравнивание текста внутри родителя */
+}
+
+.layer {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	background-size: cover;
+	background-position: center; /* центрировать изобр-е по вертикали */
 }
