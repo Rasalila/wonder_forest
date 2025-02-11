@@ -5,7 +5,7 @@
 }
 
 :root {
-
+	--index: calc(1vw + 1vh)
 }
 
 @font-face {
@@ -20,7 +20,6 @@
 
 body{
 	background-color: #010101;
-	color: #ffff;
 	font-family: raleway_f, sans-serif;
 	line-height: 1.55; /* межстрочный интервал */
 }
@@ -35,6 +34,8 @@ body{
 	align-items: center; /* ось Y |*/
 	justify-content: center; /* ось Х -->*/
 	text-align: center; /* выравнивание текста внутри родителя */
+	overflow: hidden; /* чтобы задний фон не выглядывал при скролле */
+	position: relative; /* чтобы задний фон не выглядывал при скролле */
 }
 
 .layer {
@@ -43,4 +44,44 @@ body{
 	position: absolute;
 	background-size: cover;
 	background-position: center; /* центрировать изобр-е по вертикали */
+	will-change: transform; /* браузер уделяет больше аппаратного внимания */
+	z-index: 2;
+}
+
+.layer__base {
+	transform: translate3d(0, calc(var(--scrollTop) / 1.6), 0);
+	z-index: 0;
+}
+
+.layers__middle {
+	transform: translate3d(0, calc(var(--scrollTop) / 2.5), 0);
+}
+
+.layers__front {
+	transform: translate3d(0, calc(var(--scrollTop) / 5.7), 0);
+}
+
+.layers__header {
+	z-index: 1;
+	transform: translate3d(0, calc(var(--scrollTop) / 2), 0);
+	will-change: transform;
+	text-transform: uppercase;
+	font-weight: 900;
+	color: #e7e7e0;
+	text-shadow: 0 0 15px #9d822b; /* свечение текста: x 0 y 0 размытие 15px */
+}
+
+.layers__title {
+	font-size: calc(var(--index) * 2.5);
+	letter-spacing: calc(var(--index) / 2.25);
+}
+
+.layers__caption {
+	font-size: calc(var(--index) / 1.175);
+	letter-spacing: calc(var(--index) / 3.5);
+	margin-top: calc(var(--index) / -0.75);
+}
+
+.main-article {
+	min-height: 100vh;
 }
