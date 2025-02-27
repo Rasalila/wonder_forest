@@ -13,7 +13,7 @@
 * святящийся заголовок
 * анимация с помощью cubic bezier
 
-![myGif](./assets/img/gif0_1.gif)
+![myGif](./assets/img/wonder-forest-g.gif)
 
 ## Результат:
 
